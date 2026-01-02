@@ -26,12 +26,12 @@
     <p>This is a demo of the ticket widget implementation.</p>
 
     <button 
-        class="ticket-widget-trigger my-cool-button" 
+        class="vv-widget-trigger my-cool-button" 
         data-url="http://localhost:3000/events/3c774bd1-24cc-451c-a071-85b7e0eea449/tickets/buy">
         Buy Tickets Now
     </button>
 
-    <p>Or you can use a <span class="ticket-widget-trigger text-link" data-url="http://localhost:3000/events/different-id/buy">simple text link</span>.</p>
+    <p>Or you can use a <span class="vv-widget-trigger text-link" data-url="http://localhost:3000/events/different-id/buy">simple text link</span>.</p>
 
     <div id="dynamic-area" class="container">
         <p>A button will be injected here after 3 seconds to test the <strong>Mutation Observer</strong>...</p>
@@ -43,7 +43,7 @@
         setTimeout(() => {
             const container = document.getElementById('dynamic-area');
             const newBtn = document.createElement('button');
-            newBtn.className = 'ticket-widget-trigger my-cool-button';
+            newBtn.className = 'vv-widget-trigger my-cool-button';
             newBtn.style.backgroundColor = '#6f42c1';
             newBtn.innerText = 'I was added dynamically!';
             newBtn.setAttribute('data-url', 'http://localhost:3000/events/dynamic-id/buy');

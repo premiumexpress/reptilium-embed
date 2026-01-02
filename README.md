@@ -20,9 +20,9 @@ A high-performance, SEO-friendly, "plug-and-play" JavaScript widget for embeddin
 Partner websites simply include the script and tag any element.
 
 ```html
-<script src="https://cdn.example.com/widget.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/premiumexpress/reptilium-embed/index.js" async></script>
 
-<button class="ticket-widget-trigger" data-url="https://your-app.com/events/abc/buy">
+<button class="vv-widget-trigger" data-url="https://reptilium.io/events/[event-id]/tickets/buy">
     Register Now
 </button>
 

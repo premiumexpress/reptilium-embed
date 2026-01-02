@@ -65,7 +65,7 @@
         overlay.style.display = 'flex';
         document.body.style.overflow = 'hidden';
 
-        // Hide loader if React app already sent the 'WIDGET_READY' message
+        // Hide loader if React app already sent the 'VV_WIDGET_READY' message
         if (isAppReady) {
             loader.classList.add('hidden');
             iframe.classList.add('is-visible');
@@ -79,14 +79,14 @@
 
     // 3. EVENT LISTENERS
     window.addEventListener('message', (event) => {
-        if (event.data.type === 'WIDGET_READY') {
+        if (event.data.type === 'VV_WIDGET_READY') {
             isAppReady = true;
             if (overlay.style.display === 'flex') {
                 loader.classList.add('hidden');
                 iframe.classList.add('is-visible');
             }
         }
-        if (event.data === 'CLOSE_WIDGET' || event.data.type === 'CHECKOUT_COMPLETE') hideModal();
+        if (event.data === 'VV_WIDGET_CLOSE' || event.data.type === 'CHECKOUT_COMPLETE') hideModal();
     });
 
     closeBtn.onclick = hideModal;
@@ -94,7 +94,7 @@
 
     // 4. INTELLIGENT INITIALIZATION
     const initTrigger = (el) => {
-        if (el.classList.contains('ticket-widget-trigger') && !el.hasAttribute('data-tw-ready')) {
+        if (el.classList.contains('vv-widget-trigger') && !el.hasAttribute('data-tw-ready')) {
             el.setAttribute('data-tw-ready', 'true');
             const targetUrl = el.getAttribute('data-url');
 
@@ -121,12 +121,12 @@
     // Mutation Observer to handle dynamic content
     const observer = new MutationObserver(m => m.forEach(r => r.addedNodes.forEach(n => {
         if (n.nodeType === 1) {
-            if (n.classList.contains('ticket-widget-trigger')) initTrigger(n);
-            n.querySelectorAll('.ticket-widget-trigger').forEach(initTrigger);
+            if (n.classList.contains('vv-widget-trigger')) initTrigger(n);
+            n.querySelectorAll('.vv-widget-trigger').forEach(initTrigger);
         }
     })));
     observer.observe(document.body, { childList: true, subtree: true });
-    document.querySelectorAll('.ticket-widget-trigger').forEach(initTrigger);
+    document.querySelectorAll('.vv-widget-trigger').forEach(initTrigger);
 
     window.TicketWidget = { open: showModal, close: hideModal };
 })();
