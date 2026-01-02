@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Widget Demo</title>
+    
+    <style>
+        body { font-family: sans-serif; padding: 50px; line-height: 1.6; }
+        .my-cool-button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .text-link { color: #0070f3; text-decoration: underline; cursor: pointer; }
+        .container { border: 2px dashed #ccc; padding: 20px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>Event Page</h1>
+    <p>This is a demo of the ticket widget implementation.</p>
+
+    <button 
+        class="ticket-widget-trigger my-cool-button" 
+        data-url="http://localhost:3000/events/3c774bd1-24cc-451c-a071-85b7e0eea449/tickets/buy">
+        Buy Tickets Now
+    </button>
+
+    <p>Or you can use a <span class="ticket-widget-trigger text-link" data-url="http://localhost:3000/events/different-id/buy">simple text link</span>.</p>
+
+    <div id="dynamic-area" class="container">
+        <p>A button will be injected here after 3 seconds to test the <strong>Mutation Observer</strong>...</p>
+    </div>
+
+    <script src="index.js"></script>
+
+    <script>
+        setTimeout(() => {
+            const container = document.getElementById('dynamic-area');
+            const newBtn = document.createElement('button');
+            newBtn.className = 'ticket-widget-trigger my-cool-button';
+            newBtn.style.backgroundColor = '#6f42c1';
+            newBtn.innerText = 'I was added dynamically!';
+            newBtn.setAttribute('data-url', 'http://localhost:3000/events/dynamic-id/buy');
+            
+            container.appendChild(newBtn);
+            console.log("New button injected. Mutation Observer will now detect and bind it.");
+        }, 3000);
+    </script>
+
+</body>
+</html>
