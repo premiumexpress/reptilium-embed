@@ -7,8 +7,8 @@
 
     const style = document.createElement('style');
     style.textContent = `
-        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 2147483647; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
-        .modal { background: white; width: 800px; max-width: 90vw; height: 800px; max-height: 90vh; border-radius: 12px; position: relative; overflow: hidden; }
+        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 2147483647; justify-content: center; align-items: end; backdrop-filter: blur(4px); }
+        .modal { background: white; width: 100%; max-width: 100vw; height: 90%; max-height: 90vh; border-radius: 12px 12px 0px 0px; position: relative; overflow: hidden; }
         .close { position: absolute; top: 15px; right: 15px; border: none; cursor: pointer; z-index: 30; background: #eee; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
         .loader-container { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: white; z-index: 10; }
         .spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #0070f3; border-radius: 50%; animation: spin 1s linear infinite; }
