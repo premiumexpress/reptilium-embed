@@ -16,6 +16,12 @@
         iframe { width: 100%; height: 100%; border: none; opacity: 0; transition: opacity 0.3s; }
         iframe.is-visible { opacity: 1; }
         .hidden { display: none !important; }
+
+        /* Desktop: constrain width and give full corner radius */
+        @media (min-width: 1024px) {
+            .overlay { align-items: center; }
+            .modal { max-width: 80vw; border-radius: 12px; }
+        }
     `;
     shadow.appendChild(style);
 
