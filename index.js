@@ -22,6 +22,11 @@
             .overlay { align-items: center; }
             .modal { max-width: 80vw; border-radius: 12px; }
         }
+
+        @media (prefers-color-scheme: dark) {
+            .close { color: #000 !important; }
+            .modal { border: 1px solid rgba(0,0,0,0.12); }
+        }
     `;
     shadow.appendChild(style);
 
